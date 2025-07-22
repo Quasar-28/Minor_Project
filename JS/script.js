@@ -150,7 +150,7 @@ async function displayAlbums() {
   // Load the playlist on click event on card
   Array.from(document.getElementsByClassName("card")).forEach((e) => {
     e.addEventListener("click", async (item) => {
-      songs = await getSongs(`songs/${item.currentTarget.dataset.folder}`);
+      songs = await getSongs(`songs/${item.currentTarget.dataset.folder.split('/songs/')[1]}}`);
       playMusic(decodeURIComponent(songs[0]));
     });
   });
